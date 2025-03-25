@@ -1,9 +1,14 @@
-:host {
-  display: flex;
-  flex-direction: column;
+.app-header {
+  background-color: #1e1e1e; /* Couleur de fond */
+  color: #ffffff;          /* Couleur du texte */
+  padding: 1rem;           /* Espacement interne */
+  text-align: center;      /* Centrer le texte */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Légère ombre */
+}
 
-  h1 {
-    text-align: center;
-    padding: 10px;
-  }
+.app-header h1 {
+  margin: 0;               /* Enlever le margin par défaut */
+  font-size: 2rem;         /* Taille du texte */
+  font-weight: bold;       /* Gras */
+  text-transform: uppercase; /* Met en majuscules */
 }

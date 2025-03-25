@@ -5,6 +5,7 @@ import {FloatLabel} from 'primeng/floatlabel';
 import {Password} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {InputText} from 'primeng/inputtext';
+import {PrimeTemplate} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +14,21 @@ import {InputText} from 'primeng/inputtext';
     FloatLabel,
     Password,
     Button,
-    InputText
+    InputText,
+    PrimeTemplate,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _authService: AuthService = inject(AuthService);
 
   @Output()
-  private readonly close: EventEmitter<void> = new EventEmitter();
+  readonly close: EventEmitter<void> = new EventEmitter();
 
   loginForm: FormGroup;
+  isLoading = false;
 
   constructor() {
     this.loginForm = this._fb.group({
@@ -34,25 +37,27 @@ export class LoginComponent {
     });
   }
 
-  submit() {
-
+  submit(): void {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.invalid) {
       return;
     }
 
+    this.isLoading = true;
     this._authService.login(this.loginForm.value).subscribe({
       next: () => {
+        this.isLoading = false;
         this.closeForm();
       },
       error: (err) => {
-        console.log(err);
+        console.error(err);
+        this.isLoading = false;
       }
     });
   }
 
-  closeForm() {
+  closeForm(): void {
     this.close.emit();
   }
 }

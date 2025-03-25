@@ -6,6 +6,7 @@ import {FloatLabel} from 'primeng/floatlabel';
 import {Password} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {InputText} from 'primeng/inputtext';
+import {PrimeTemplate} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ import {InputText} from 'primeng/inputtext';
     ReactiveFormsModule,
     Password,
     Button,
-    InputText
+    InputText,
+    PrimeTemplate
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -29,6 +31,7 @@ export class RegisterComponent {
   private readonly close: EventEmitter<void> = new EventEmitter();
 
   registerForm: FormGroup;
+  isLoading = false;
 
   constructor() {
     this.registerForm = this._fb.group({
@@ -50,12 +53,15 @@ export class RegisterComponent {
       return;
     }
 
+    this.isLoading = true;
     this._authService.register(this.registerForm.value).subscribe({
       next: () => {
+        this.isLoading = false;
         this.closeForm();
       },
       error: (err) => {
-        console.log(err);
+        console.error(err);
+        this.isLoading = false;
       }
     });
   }
