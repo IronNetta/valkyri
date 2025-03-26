@@ -1,10 +1,14 @@
- <div class="home-page">
-   <div class="hero-section">
-     <h1 *ngIf="!isLoggedIn">Bienvenue sur Valkyrie</h1>
-     <h1 *ngIf="isLoggedIn">Bienvenue, {{ userName }} !</h1>
-     <p *ngIf="!isLoggedIn">Connectez-vous ou inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
-     <p *ngIf="isLoggedIn">Nous sommes heureux de vous revoir. Profitez de votre expérience personnalisée !</p>
-   </div>
+<div class="home-page">
+  <div class="hero-section">
+    @if (!isLoggedIn) {
+      <h1>Bienvenue sur Valkyrie</h1>
+      <p>Connectez-vous ou inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
+    }
+    @if (isLoggedIn) {
+      <h1>Bienvenue, {{ userName }} !</h1>
+      <p>Nous sommes heureux de vous revoir. Profitez de votre expérience personnalisée !</p>
+    }
+  </div>
     <div class="features-section">
       <h2>Nos fonctionnalités</h2>
       <div class="features">
