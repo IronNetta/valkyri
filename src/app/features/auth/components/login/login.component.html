@@ -23,7 +23,7 @@
       <small>Password is required.</small>
     </div>
   }
-
+  <p>Pas encore inscrit ? <span (click)="switchForm()">Inscrivez-vous</span></p>
   <p-button
     severity="success"
     label="Login"
@@ -36,4 +36,8 @@
       </ng-template>
     }
   </p-button>
+  @if (errorMessage){
+    <p class="error">{{ errorMessage }}</p>
+  }
 </form>
+

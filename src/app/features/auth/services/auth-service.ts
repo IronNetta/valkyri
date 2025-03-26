@@ -1,5 +1,5 @@
 import {inject, Injectable, signal, WritableSignal} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {UserTokenDto} from '../models/user-token-dto';
 import {RegisterFormModel} from '../models/register-form.model';
 import {LoginFormModel} from '../models/login-form.model';
@@ -40,6 +40,23 @@ export class AuthService {
   logout() {
     localStorage.removeItem("currentUser");
     this.currentUser.set(undefined);
+  }
+
+  catchError(err: HttpErrorResponse) {
+    let erroMessage = "Une erreur est survenue.";
+    if(err instanceof HttpErrorResponse) {
+      switch (err.status) {
+        case 400:
+          "Une erreur est survenue.";
+          break;
+        case 500:
+          "Cette email existe déjà";
+          break;
+        default:
+          break;
+
+      }
+    }
   }
 
 }

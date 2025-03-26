@@ -1,11 +1,13 @@
-import {Component, effect, inject, WritableSignal} from '@angular/core';
+import {Component, effect, EventEmitter, inject, Output, WritableSignal} from '@angular/core';
 import {UserTokenDto} from '../../features/auth/models/user-token-dto';
 import {AuthService} from '../../features/auth/services/auth-service';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, PrimeTemplate} from 'primeng/api';
 import {Menubar} from 'primeng/menubar';
 import {Dialog} from 'primeng/dialog';
 import {RegisterComponent} from '../../features/auth/components/register/register.component';
 import {LoginComponent} from '../../features/auth/components/login/login.component';
+import {NgIf} from '@angular/common';
+import {ButtonDirective} from 'primeng/button';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +15,7 @@ import {LoginComponent} from '../../features/auth/components/login/login.compone
     Menubar,
     Dialog,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
@@ -25,6 +27,8 @@ export class NavComponent {
   items!: MenuItem[];
   registerVisible: boolean = false;
   loginVisible: boolean = false;
+  showDialog:boolean = false;
+
   currentUser: WritableSignal<UserTokenDto|undefined>;
 
   constructor() {
@@ -41,10 +45,10 @@ export class NavComponent {
     // });
   }
 
-  closeForm(): void {
-    this.registerVisible = false;
-    this.loginVisible = false;
-  }
+  // closeForm(): void {
+  //   this.registerVisible = false;
+  //   this.loginVisible = false;
+  // }
 
   initNav(currentUser: UserTokenDto | undefined) {
     if (currentUser) {
@@ -95,5 +99,16 @@ export class NavComponent {
         }
       ];
     }
+  }
+
+  closeForm() {
+    this.showDialog = false;
+    this.registerVisible=false;
+    this.loginVisible=false;
+  }
+
+  switchForm() {
+    this.loginVisible =!this.loginVisible;
+    this.registerVisible =!this.registerVisible;
   }
 }

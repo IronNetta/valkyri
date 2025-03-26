@@ -44,6 +44,7 @@
               <small>Confirm Password is required.</small>
             </div>
           }
+  <p>Déjà inscrit ? <span (click)="switchForm()">Connectez-vous</span></p>
   <p-button
     severity="success"
     label="Register"
@@ -56,4 +57,10 @@
       </ng-template>
     }
   </p-button>
+  @if (errorMessage){
+    <p class="error">{{ errorMessage }}</p>
+  }
+  @if(isRegistered){
+    <p class="success">You are damn registered my brudah !</p>
+  }
 </form>

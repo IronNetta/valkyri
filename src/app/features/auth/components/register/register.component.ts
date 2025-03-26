@@ -23,15 +23,20 @@ import {PrimeTemplate} from 'primeng/api';
 })
 export class RegisterComponent {
 
-
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _authService: AuthService = inject(AuthService);
 
   @Output()
   private readonly close: EventEmitter<void> = new EventEmitter();
 
+  @Output()
+  private readonly _switchForm: EventEmitter<void> = new EventEmitter<void>();
+
+
   registerForm: FormGroup;
+  errorMessage: string | null = null;
   isLoading = false;
+  isRegistered = false;
 
   constructor() {
     this.registerForm = this._fb.group({
@@ -57,11 +62,14 @@ export class RegisterComponent {
     this._authService.register(this.registerForm.value).subscribe({
       next: () => {
         this.isLoading = false;
+        this.registerForm.reset();
+        this.isRegistered = true;
         this.closeForm();
       },
       error: (err) => {
         console.error(err);
         this.isLoading = false;
+        this.errorMessage = err.error;
       }
     });
   }
@@ -69,4 +77,9 @@ export class RegisterComponent {
   closeForm() {
     this.close.emit();
   }
+
+  switchForm(): void {
+    this._switchForm.emit();
+  }
+
 }

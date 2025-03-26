@@ -10,4 +10,17 @@
       width: 100%;
     }
   }
+  span{
+    text-decoration: underline;
+  }
+
+  span:hover {
+    color: purple;
+    cursor: pointer;
+  }
+
+  .error {
+    color: PURPLE;
+  }
+
 }

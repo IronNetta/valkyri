@@ -13,4 +13,5 @@ import {HomeComponent} from './features/home/pages/home/home.component';
 })
 export class AppComponent {
   title = 'Valkyri';
+
 }

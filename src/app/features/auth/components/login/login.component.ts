@@ -6,6 +6,9 @@ import {Password} from 'primeng/password';
 import {Button} from 'primeng/button';
 import {InputText} from 'primeng/inputtext';
 import {PrimeTemplate} from 'primeng/api';
+import {RouterLink} from '@angular/router';
+import {Dialog} from 'primeng/dialog';
+import {RegisterComponent} from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +19,8 @@ import {PrimeTemplate} from 'primeng/api';
     Button,
     InputText,
     PrimeTemplate,
+    Dialog,
+    RegisterComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -27,7 +32,12 @@ export class LoginComponent {
   @Output()
   readonly close: EventEmitter<void> = new EventEmitter();
 
+  @Output()
+  private readonly _switchForm: EventEmitter<void> = new EventEmitter<void>();
+
+
   loginForm: FormGroup;
+  errorMessage: string | null = null;
   isLoading = false;
 
   constructor() {
@@ -53,11 +63,15 @@ export class LoginComponent {
       error: (err) => {
         console.error(err);
         this.isLoading = false;
+        this.errorMessage = err.error;
       }
     });
   }
 
   closeForm(): void {
     this.close.emit();
+  }
+  switchForm(): void {
+    this._switchForm.emit();
   }
 }
