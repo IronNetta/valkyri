@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Liste des utilisateurs</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Rôle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role || 'Utilisateur' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
