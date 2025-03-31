@@ -1,24 +1,20 @@
 <div class="card">
-  <div class="flex flex-col md:flex-row">
-
-    <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
+  <p-splitter [style]="{ height: '300px' }" styleClass="mb-8">
+    <ng-template #panel>
       <div class="flex flex-col gap-2">
         <h3 class="m-0">Nom du produit</h3>
         <p class="m-0">Description du produit</p>
         <p class="m-0">Prix : </p>
       </div>
-    </div>
-
-    <div class="w-full md:w-2/12">
-      <p-divider layout="vertical" class="!hidden md:!flex" align="center"></p-divider>
-      <p-divider layout="horizontal" class="!flex md:!hidden" ><b>OR</b></p-divider>
-    </div>
-
-    <div class="w-full md:w-5/12 flex items-center justify-center py-5">
-      <img class="productSingleImage" src="../assets/img/heavy_metal_death_shrimp.jpg" alt="nomProduit">
-    </div>
-
-  </div>
+    </ng-template>
+    <ng-template #panel>
+      <div class="flex items-center justify-center h-full">
+        <div class="flex flex-col gap-2 productSingleImage">
+          <img class="productSingleImage" src="../assets/img/heavy_metal_death_shrimp.jpg" alt="nomProduit">
+        </div>
+      </div>
+    </ng-template>
+  </p-splitter>
 </div>
 
 <div class="card flex justify-center">

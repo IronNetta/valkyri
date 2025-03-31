@@ -13,5 +13,9 @@ export const routes: Routes = [
       {
         path: 'users',
         loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
+      },
+      {
+        path: 'product/:id',
+        loadComponent: () => import('./features/products/components/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent)
       }
 ];

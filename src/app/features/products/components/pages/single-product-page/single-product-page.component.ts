@@ -4,6 +4,7 @@ import {Button, ButtonModule} from 'primeng/button';
 import { FieldsetModule } from 'primeng/fieldset';
 import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
+import { SplitterModule } from 'primeng/splitter';
 import {NgOptimizedImage} from '@angular/common';
 
 @Component({
@@ -12,6 +13,7 @@ import {NgOptimizedImage} from '@angular/common';
     Button,
     FieldsetModule,
     DividerModule,
+    SplitterModule,
     PanelModule,
   ],
   standalone: true,
