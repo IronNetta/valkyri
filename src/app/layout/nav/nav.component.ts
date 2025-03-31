@@ -63,11 +63,11 @@ export class NavComponent {
             label: currentUser.user.fullName,
             icon: 'pi pi-user',
           },
-          {
-            label: 'users',
+          ...(currentUser.user.role.includes('ADMIN') ? [{
+            label: 'Users',
             icon: 'pi pi-users',
             routerLink: '/users',
-          },
+          }] : []),
           {
             label: 'Logout',
             icon: 'pi pi-logout',
