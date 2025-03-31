@@ -60,6 +60,11 @@ export class NavComponent {
             icon: 'pi pi-user',
           },
           {
+            label: 'users',
+            icon: 'pi pi-users',
+            routerLink: '/users',
+          },
+          {
             label: 'Logout',
             icon: 'pi pi-logout',
             command: () => {

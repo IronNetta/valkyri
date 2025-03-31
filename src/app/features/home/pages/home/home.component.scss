@@ -1,0 +1,43 @@
+.home-page {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-section {
+  background-color: black;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.hero-buttons a {
+  margin: 0.5rem;
+}
+
+.features-section {
+  margin-top: 2rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  width: 300px;
+  margin: 1rem;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #42a5f5;
+  margin-bottom: 1rem;
+}
+
