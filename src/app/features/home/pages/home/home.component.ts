@@ -7,9 +7,6 @@ import {AuthService} from '../../../auth/services/auth-service';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink,
-    ButtonDirective,
-    NgIf
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
