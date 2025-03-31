@@ -4,17 +4,22 @@ import {AuthService} from '../../auth/services/auth-service';
 import {UserTokenDto} from '../../auth/models/user-token-dto';
 
 export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
+  const authService = inject(AuthService);
+  const currentUser = authService.currentUser();
 
-  const authService: AuthService = inject(AuthService);
-  let currentUser: UserTokenDto | undefined = authService.currentUser();
-  if(currentUser) {
-    let token = currentUser.accessToken;
-    if(token) {
-      let clone = req.clone({
-        headers: req.headers.append('Authorization', `Bearer ${token}`),
-      });
-      return next(clone);
-    }
+  console.log('Interceptor - Current User:', currentUser);
+
+  if (currentUser && currentUser.token) {
+    console.log('Interceptor - Token:', currentUser.token);
+
+    const clonedRequest = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${currentUser.token}`
+      }
+    });
+
+    return next(clonedRequest);
   }
+
   return next(req);
 };
