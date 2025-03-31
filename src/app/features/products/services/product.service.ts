@@ -13,16 +13,18 @@ export class ProductService {
 
   constructor() { }
 
-  create(product: ProductCreateFormModel) {
+
+  public findByID(id: number) {
+    return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/products/${id}`);
+  }
+
+
+  public create(product: ProductCreateFormModel) {
     return this._http.post<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
   }
 
-  update(product: ProductCreateFormModel) {
+  public update(product: ProductCreateFormModel) {
     return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
-  }
-
-  findByID(id: number) {
-    return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/products/${id}`);
   }
   public getAllProducts() {
     return this._http.get<ProductDetailsDtoModel[]>(`${environment.API_URL}/product`);

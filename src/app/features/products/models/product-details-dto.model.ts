@@ -1,7 +1,8 @@
 export interface ProductDetailsDtoModel {
   id: number;
-  name: string;
+  nom: string;
   description: string;
-  image: string;
-  price: number;
+  prix: number;
+  imageUrl: string;
+
 }
