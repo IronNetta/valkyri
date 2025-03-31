@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
   }
 
   editProduct(id: number): void {
-    this.router.navigate(['/product/edit', id]);
+    this.router.navigate(['/product/update', id]);
   }
 
   deleteProduct(id: number): void {
