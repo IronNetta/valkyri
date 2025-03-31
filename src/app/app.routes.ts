@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import {isConnectedGuard} from './features/shared/guards/is-connected.guard';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,12 @@ export const routes: Routes = [
       },
       {
         path: 'users',
-        loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
-      }
+        loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent),
+        canActivate: [isConnectedGuard]
+      },
+  {
+    path: 'products',
+    loadComponent: () => import('./features/products/pages/product-list/product-list.component').then(m => m.ProductListComponent),
+    canActivate: [isConnectedGuard]
+  }
 ];
