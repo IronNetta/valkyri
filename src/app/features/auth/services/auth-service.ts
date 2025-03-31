@@ -5,6 +5,7 @@ import {RegisterFormModel} from '../models/register-form.model';
 import {LoginFormModel} from '../models/login-form.model';
 import {tap} from 'rxjs';
 import {environment} from '../../../../environments/environment';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import {environment} from '../../../../environments/environment';
 export class AuthService {
 
   private readonly _http: HttpClient = inject(HttpClient);
+
+  private readonly _router: Router = inject(Router);
 
   currentUser: WritableSignal<UserTokenDto|undefined>;
 
@@ -40,6 +43,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem("currentUser");
     this.currentUser.set(undefined);
+    this._router.navigate(['/home']);
   }
 
   catchError(err: HttpErrorResponse) {

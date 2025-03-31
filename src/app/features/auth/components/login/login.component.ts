@@ -19,8 +19,6 @@ import {RegisterComponent} from '../register/register.component';
     Button,
     InputText,
     PrimeTemplate,
-    Dialog,
-    RegisterComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -69,9 +67,13 @@ export class LoginComponent {
   }
 
   closeForm(): void {
+    this.loginForm.reset();
+    this.errorMessage = null;
     this.close.emit();
   }
   switchForm(): void {
+    this.loginForm.reset();
+    this.errorMessage = null;
     this._switchForm.emit();
   }
 }

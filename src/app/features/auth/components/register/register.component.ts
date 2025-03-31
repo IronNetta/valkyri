@@ -75,10 +75,14 @@ export class RegisterComponent {
   }
 
   closeForm() {
+    this.registerForm.reset();
+    this.errorMessage = null;
     this.close.emit();
   }
 
   switchForm(): void {
+    this.registerForm.reset();
+    this.errorMessage = null;
     this._switchForm.emit();
   }
 
