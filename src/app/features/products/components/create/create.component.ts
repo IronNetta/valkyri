@@ -1,3 +1,4 @@
+
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -8,10 +9,12 @@ import {ProductService} from '../../services/product.service';
   imports: [
     ReactiveFormsModule
   ],
+
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
+
 
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _router: Router = inject(Router);
@@ -45,5 +48,4 @@ export class CreateComponent {
       }
     });
   }
-
 }

@@ -1,7 +1,9 @@
+
 import {Component, inject} from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import {FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-update',
@@ -39,6 +41,5 @@ export class UpdateComponent {
       }
     })
   }
-
 
 }

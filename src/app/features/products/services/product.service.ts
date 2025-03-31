@@ -24,5 +24,12 @@ export class ProductService {
   findByID(id: number) {
     return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/products/${id}`);
   }
+  public getAllProducts() {
+    return this._http.get<ProductDetailsDtoModel[]>(`${environment.API_URL}/product`);
+  }
+
+  public deleteProduct(id: number) {
+    return this._http.delete<void>(`${environment.API_URL}/product/${id}`);
+  }
 
 }

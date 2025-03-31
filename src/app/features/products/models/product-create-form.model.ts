@@ -3,4 +3,5 @@ export interface ProductCreateFormModel {
   description: string;
   image: string;
   price: number;
+
 }
