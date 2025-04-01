@@ -15,16 +15,16 @@ export class ProductService {
 
 
   public findByID(id: number) {
-    return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/products/${id}`);
+    return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/product/${id}`);
   }
 
 
   public create(product: ProductCreateFormModel) {
-    return this._http.post<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
+    return this._http.post<ProductCreateFormModel>(environment.API_URL + '/product', product);
   }
 
   public update(product: ProductCreateFormModel) {
-    return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
+    return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/product', product);
   }
   public getAllProducts() {
     return this._http.get<ProductDetailsDtoModel[]>(`${environment.API_URL}/product`);
