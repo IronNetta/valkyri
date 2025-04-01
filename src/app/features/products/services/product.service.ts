@@ -18,12 +18,11 @@ export class ProductService {
     return this._http.get<ProductDetailsDtoModel>(`${environment.API_URL}/products/${id}`);
   }
 
-
   public create(product: ProductCreateFormModel) {
     return this._http.post<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
   }
 
-  public update(product: ProductCreateFormModel) {
+  public update(id: number,product: ProductCreateFormModel) {
     return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/products', product);
   }
   public getAllProducts() {
@@ -33,5 +32,7 @@ export class ProductService {
   public deleteProduct(id: number) {
     return this._http.delete<void>(`${environment.API_URL}/product/${id}`);
   }
+
+
 
 }
