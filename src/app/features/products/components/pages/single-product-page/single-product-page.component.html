@@ -1,0 +1,24 @@
+<div class="card">
+  <p-splitter [style]="{ height: '300px' }" styleClass="mb-8">
+    <ng-template #panel>
+      <div class="flex flex-col gap-2">
+        <h3 class="m-0">Nom du produit</h3>
+        <p class="m-0">Description du produit</p>
+        <p class="m-0">Prix : </p>
+      </div>
+    </ng-template>
+    <ng-template #panel>
+      <div class="flex items-center justify-center h-full">
+        <div class="flex flex-col gap-2 productSingleImage">
+          <img class="productSingleImage" src="../assets/img/heavy_metal_death_shrimp.jpg" alt="nomProduit">
+        </div>
+      </div>
+    </ng-template>
+  </p-splitter>
+</div>
+
+<div class="card flex justify-center">
+  <p-fieldset legend="Modifier le produit" [toggleable]="true">
+    <p-button label="Modifier" severity="success" routerLink="/product/update/:id"></p-button>
+  </p-fieldset>
+</div>

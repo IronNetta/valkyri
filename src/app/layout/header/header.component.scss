@@ -11,4 +11,10 @@
   font-size: 2rem;         /* Taille du texte */
   font-weight: bold;       /* Gras */
   text-transform: uppercase; /* Met en majuscules */
+  display: inline;
+}
+
+.app-header .headerSecondTitle {
+  margin-left : 1%;
+  display: inline;
 }
