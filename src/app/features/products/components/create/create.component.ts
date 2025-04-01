@@ -3,11 +3,17 @@ import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ProductService} from '../../services/product.service';
+import {FloatLabel} from 'primeng/floatlabel';
+import {Button} from 'primeng/button';
+import {InputText} from 'primeng/inputtext';
 
 @Component({
   selector: 'app-create',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FloatLabel,
+    Button,
+    InputText
   ],
 
   templateUrl: './create.component.html',
