@@ -1,1 +1,53 @@
-<p>update works!</p>
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <p-floatlabel variant="on">
+    <div>
+      <input pInputText id="name" type="text" formControlName="nom">
+      <label for="name">Name : </label>
+    </div>
+  </p-floatlabel>
+  @if (productForm.get('nom')?.touched && productForm.get('nom')?.invalid){
+    <div>
+      <small>Name is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
+    <div>
+      <textarea pInputText id="description" formControlName="description" cols="50" rows="10"></textarea>
+      <label for="description">Description : </label>
+    </div>
+  </p-floatlabel>
+  @if (productForm.get('description')?.touched && productForm.get('description')?.invalid){
+    <div>
+      <small>Description is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
+    <div>
+      <label for="picture"></label>
+      <input pInputText id="picture" type="text" formControlName="imageUrl">
+    </div>
+  </p-floatlabel>
+  @if (productForm.get('imageUrl')?.touched && productForm.get('imageUrl')?.invalid){
+    <div>
+      <small>Picture is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
+    <div>
+      <label for="price">Price : </label>
+      <input pInputText id="price" type="number" formControlName="prix">
+    </div>
+  </p-floatlabel>
+  @if (productForm.get('prix')?.touched && productForm.get('prix')?.invalid){
+    <div>
+      <small>Price is required</small>
+    </div>
+  }
+  <p-button
+    severity="success"
+    label="Update"
+    type="submit"
+  >
+
+  </p-button>
+</form>
