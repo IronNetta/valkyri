@@ -1,3 +1,4 @@
+
 import {Component, inject, Input} from '@angular/core';
 import {ProductSingleDtoModel} from '../../models/product-single-dto.model';
 import {Button, ButtonModule} from 'primeng/button';
@@ -11,6 +12,7 @@ import {ConfirmationService} from 'primeng/api';
 import {Card} from 'primeng/card';
 import {ProductDetailsDtoModel} from '../../models/product-details-dto.model';
 
+
 @Component({
   selector: 'app-single-product-page',
   imports: [
@@ -18,6 +20,7 @@ import {ProductDetailsDtoModel} from '../../models/product-details-dto.model';
     FieldsetModule,
     DividerModule,
     SplitterModule,
+
     PanelModule
   ],
   standalone: true,

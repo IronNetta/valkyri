@@ -1,7 +1,7 @@
 export interface ProductCreateFormModel {
-  name: string;
+  nom: string;
   description: string;
-  image: string;
-  price: number;
+  imageUrl: string;
+  prix: number;
 
 }

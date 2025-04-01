@@ -19,11 +19,11 @@ export class ProductService {
   }
 
   public create(product: ProductCreateFormModel) {
-    return this._http.post<ProductDetailsDtoModel>(environment.API_URL + '/product', product);
+    return this._http.post<ProductCreateFormModel>(environment.API_URL + '/product', product);
   }
 
-  public update(product: ProductCreateFormModel) {
-    return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/product', product);
+  public update(id: number, product: ProductCreateFormModel) {
+    return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/product/${id}', product);
   }
   public getAllProducts() {
     return this._http.get<ProductDetailsDtoModel[]>(`${environment.API_URL}/product`);
@@ -32,5 +32,7 @@ export class ProductService {
   public deleteProduct(id: number) {
     return this._http.delete<void>(`${environment.API_URL}/product/${id}`);
   }
+
+
 
 }
