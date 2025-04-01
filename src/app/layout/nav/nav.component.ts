@@ -63,11 +63,16 @@ export class NavComponent {
             label: currentUser.user.fullName,
             icon: 'pi pi-user',
           },
-          {
-            label: 'users',
+          ...(currentUser.user.role.includes('ADMIN') ? [{
+            label: 'Users',
             icon: 'pi pi-users',
             routerLink: '/users',
-          },
+          }] : []),
+          ...(currentUser.user.role.includes('ADMIN') || currentUser.user.role.includes('COMERCIAL')? [{
+            label: 'Products',
+            icon: 'pi pi-users',
+            routerLink: '/products',
+          }] : []),
           {
             label: 'Logout',
             icon: 'pi pi-logout',
