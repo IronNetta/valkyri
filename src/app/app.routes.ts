@@ -22,6 +22,10 @@ export const routes: Routes = [
         canActivate: [isConnectedGuard]
       },
       {
+        path: 'product/:id',
+        loadComponent: () => import('./features/products/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent),
+      },
+      {
         path: 'users',
         loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent),
         canActivate: [isConnectedGuard]
