@@ -7,6 +7,8 @@ import {TableModule} from 'primeng/table';
 import {FormsModule} from '@angular/forms';
 import {ButtonDirective} from 'primeng/button';
 import {InputText} from 'primeng/inputtext';
+import {NgForOf} from '@angular/common';
+import {Card} from 'primeng/card';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +18,9 @@ import {InputText} from 'primeng/inputtext';
     TableModule,
     FormsModule,
     ButtonDirective,
-    InputText
+    InputText,
+    NgForOf,
+    Card
   ],
   providers: [ConfirmationService]
 })

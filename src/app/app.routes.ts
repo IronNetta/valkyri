@@ -12,12 +12,12 @@ export const routes: Routes = [
         loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent)
       },
       {
-        path: 'create',
+        path: 'product/create',
         loadComponent: () => import('./features/products/components/create/create.component').then(m => m.CreateComponent),
         canActivate: [isConnectedGuard]
       },
       {
-        path: 'update/:id',
+        path: 'product/update/:id',
         loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent),
         canActivate: [isConnectedGuard]
       },
