@@ -1,29 +1,79 @@
 <div class="container mt-4">
-  <h2>Liste des produits</h2>
-  <div class="mb-3 d-flex align-items-center gap-2">
-    <input type="text" pInputText placeholder="Rechercher un produit..." [(ngModel)]="searchQuery" (input)="filterProducts()" />
-    <button pButton type="button" label="Ajouter un produit" icon="pi pi-plus" (click)="addProduct()"></button>
-  </div>
+    <h2>Liste des produits</h2>
 
-  <!-- Grille de cartes -->
-  <div class="grid">
-    <div class="col-12 sm:col-6 md:col-4 lg:col-3" *ngFor="let product of filteredProducts">
-      <p-card class="product-card">
-        <ng-template pTemplate="header">
-          <img [src]="product.imageUrl || 'https://via.placeholder.com/150'" alt="{{ product.nom }}" class="product-image">
-        </ng-template>
-        <ng-template pTemplate="title">
-          {{ product.nom }}
-        </ng-template>
-        <ng-template pTemplate="content">
-          <p>Prix : <strong>{{ product.prix }} €</strong></p>
-          <div class="d-flex justify-content-between">
-            <button pButton icon="pi pi-pencil" class="p-button-warning" (click)="editProduct(product.id)">Modifier</button>
-            <button pButton icon="pi pi-trash" class="p-button-danger" (click)="deleteProduct(product.id)">Supprimer</button>
-          </div>
-        </ng-template>
-      </p-card>
+    <div class="mb-3 d-flex align-items-center gap-2">
+        <input
+                type="text"
+                pInputText
+                placeholder="Rechercher un produit..."
+                [(ngModel)]="searchQuery"
+                (input)="filterProducts()"
+        />
+        <button
+                pButton
+                type="button"
+                label="Ajouter un produit"
+                icon="pi pi-plus"
+                (click)="addProduct()"
+        ></button>
     </div>
-  </div>
-</div>
 
+    <div class="grid">
+        <div
+                class="col-12 sm:col-6 md:col-4 lg:col-3"
+                *ngFor="let product of paginatedProducts()"
+        >
+            <p-card class="product-card">
+                <ng-template pTemplate="header">
+                    <img
+                            [src]="product.imageUrl || 'https://via.placeholder.com/150'"
+                            alt="{{ product.nom }}"
+                            class="product-image"
+                    />
+                </ng-template>
+
+                <ng-template pTemplate="title">
+                    {{ product.nom }}
+                </ng-template>
+
+                <ng-template pTemplate="content">
+                    <p>Prix : <strong>{{ product.prix }} €</strong></p>
+                    <div class="d-flex justify-content-between">
+                        <button
+                                pButton
+                                icon="pi pi-pencil"
+                                class="p-button-warning"
+                                (click)="editProduct(product.id)"
+                        >
+                            Modifier
+                        </button>
+                        <button
+                                pButton
+                                icon="pi pi-pencil"
+                                class="p-button-warning"
+                                routerLink="/product/:id"
+                        >
+                            Details
+                        </button>
+                        <button
+                                pButton
+                                icon="pi pi-trash"
+                                class="p-button-danger"
+                                (click)="deleteProduct(product.id)"
+                        >
+                            Supprimer
+                        </button>
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+
+    <!-- Paginator PrimeNG -->
+    <p-paginator
+            [rows]="itemsPerPage()"
+            [totalRecords]="filteredProducts().length"
+            [rowsPerPageOptions]="[4, 8, 12]"
+            (onPageChange)="paginate($event)">
+    </p-paginator>
+</div>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {isConnectedGuard} from "./features/shared/guards/is-connected.guard";
+import {SingleProductPageComponent} from './features/products/pages/single-product-page/single-product-page.component';
 
 export const routes: Routes = [
   {
@@ -29,17 +30,17 @@ export const routes: Routes = [
         path: 'users',
         loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
       },
+
       {
-        path: 'create',
-        loadComponent: () => import('./features/products/components/create/create.component').then(m => m.CreateComponent)
-      },
-      {
-        path: 'update/:id',
+        path: 'product/update/:id',
         loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent)
       },
+        {
+          path: 'products/:id',
+          loadComponent: () => import('./features/products/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent)
+        },
       {
         path: 'products',
-        loadComponent: () => import('./features/products/pages/product-list/product-list.component').then(m => m.ProductListComponent),
-        canActivate: [isConnectedGuard]
+        loadComponent: () => import('./features/products/pages/product-list/product-list.component').then(m => m.ProductListComponent)
       },
 ];
