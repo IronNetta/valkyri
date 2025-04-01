@@ -23,7 +23,7 @@ export class ProductService {
   }
 
   public update(id: number, product: ProductCreateFormModel) {
-    return this._http.put<ProductDetailsDtoModel>(environment.API_URL + '/product/${id}', product);
+    return this._http.put<ProductDetailsDtoModel>(`${environment.API_URL}/product/${id}`, product);
   }
   public getAllProducts() {
     return this._http.get<ProductDetailsDtoModel[]>(`${environment.API_URL}/product`);
