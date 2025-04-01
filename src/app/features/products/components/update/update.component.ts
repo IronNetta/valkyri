@@ -10,9 +10,9 @@ import { ProductDetailsDtoModel } from '../../models/product-details-dto.model';
   templateUrl: './update.component.html',
   styleUrl: './update.component.scss'
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent {
 
-  private readonly _fb: FormBuilder = inject(FormBuilder);
+  /*private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _router: Router = inject(Router);
   private readonly _route: ActivatedRoute = inject(ActivatedRoute);
   private readonly _productService: ProductService = inject(ProductService);
@@ -58,7 +58,7 @@ export class UpdateComponent implements OnInit {
         console.error(error);
       }
     })
-
-  }
+      error: (err) => console.error('Erreur lors de la mise à jour', err)
+    };*/
 
 }
