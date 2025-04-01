@@ -1,5 +1,7 @@
 .productSingleImage {
   max-height: 200px;
+  margin-top : 4%;
+
 }
 
 .singleProductPage {
@@ -7,5 +9,12 @@
 }
 
 .productSingleImage {
-  margin-top : 4%;
+
+}
+
+.infoProductBox {
+  display : flex;
+  flex-direction : column;
+  column-gap: 5%;
+
 }

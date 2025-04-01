@@ -1,19 +1,53 @@
-<form [formGroup]="productForm" (ngSubmit)="submit()" enctype="multipart/form-data">
+<form [formGroup]="productForm" (ngSubmit)="submit()">
+  <p-floatlabel variant="on">
   <div>
+    <input pInputText id="name" type="text" formControlName="nom">
     <label for="name">Name : </label>
-    <input id="name" type="text" formControlName="nom">
   </div>
+  </p-floatlabel>
+  @if (productForm.get('nom')?.touched && productForm.get('nom')?.invalid){
+    <div>
+    <small>Name is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
   <div>
+    <textarea pInputText id="description" formControlName="description" cols="50" rows="10"></textarea>
     <label for="description">Description : </label>
-    <textarea id="description" formControlName="description" cols="50" rows="10"></textarea>
   </div>
+  </p-floatlabel>
+  @if (productForm.get('description')?.touched && productForm.get('description')?.invalid){
+    <div>
+    <small>Description is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
   <div>
-    <label for="picture">Picture : </label>
-    <input id="picture" type="text" formControlName="imageUrl">
+    <label for="picture"></label>
+    <input pInputText id="picture" type="file" formControlName="imageUrl">
   </div>
+  </p-floatlabel>
+  @if (productForm.get('imageUrl')?.touched && productForm.get('imageUrl')?.invalid){
+    <div>
+    <small>Picture is required</small>
+    </div>
+  }
+  <p-floatlabel variant="on">
   <div>
     <label for="price">Price : </label>
-    <input id="price" type="number" formControlName="prix">
+    <input pInputText id="price" type="number" formControlName="prix">
   </div>
-  <button type="submit" (click)="submit()">Create</button>
+  </p-floatlabel>
+  @if (productForm.get('prix')?.touched && productForm.get('prix')?.invalid){
+    <div>
+    <small>Price is required</small>
+    </div>
+  }
+  <p-button
+    severity="success"
+    label="Create"
+    type="submit"
+  >
+
+  </p-button>
 </form>
