@@ -5,5 +5,5 @@ import {ProductSingleDtoModel} from '../models/product-single-dto.model';
 
 export const productResolver: ResolveFn<ProductSingleDtoModel> = (route, state) => {
 const productService: ProductService = inject(ProductService);
-  return productService.getOne();
+  return productService.findByID(route.params['id']).pipe();
 };

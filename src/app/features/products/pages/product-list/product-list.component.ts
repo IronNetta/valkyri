@@ -10,6 +10,7 @@ import { InputText } from 'primeng/inputtext';
 import { NgForOf } from '@angular/common';
 import { Card } from 'primeng/card';
 import { PaginatorModule } from 'primeng/paginator';
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +24,8 @@ import { PaginatorModule } from 'primeng/paginator';
     NgForOf,
     Card,
     PaginatorModule,
-    RouterLink
+    RouterLink,
+    ConfirmDialogModule
   ],
   providers: [ConfirmationService]
 })
@@ -62,7 +64,7 @@ export class ProductListComponent {
             product.nom.toLowerCase().includes(this.searchQuery().toLowerCase())
         )
     );
-    this.paginate({ first: 0, rows: this.itemsPerPage() }); // Réinitialisation de la pagination
+    this.paginate({ first: 0, rows: this.itemsPerPage() });
   }
 
   paginate(event: any): void {
@@ -80,13 +82,10 @@ export class ProductListComponent {
   }
 
   deleteProduct(id: number): void {
-    this.confirmationService.confirm({
-      message: 'Êtes-vous sûr de vouloir supprimer ce produit ?',
-      accept: () => {
-        this.productService.deleteProduct(id).subscribe(() => {
-          this.fetchProducts();
-        });
-      }
+    console.log('Tentative de suppression sans confirmation pour', id);
+    this.productService.deleteProduct(id).subscribe(() => {
+      console.log('Produit supprimé avec succès');
+      this.fetchProducts();
     });
   }
 }
