@@ -58,8 +58,7 @@ export class UpdateComponent implements OnInit {
         console.error(error);
       }
     })
-      error: (err) => console.error('Erreur lors de la mise à jour', err)
-    });
+
   }
 
 }
