@@ -26,7 +26,7 @@
             <p-card class="product-card">
                 <ng-template pTemplate="header">
                     <img
-                            [src]="product.imageUrl || 'https://via.placeholder.com/150'"
+                            [src]="product.imageUrl || 'https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg'"
                             alt="{{ product.nom }}"
                             class="product-image"
                     />
@@ -49,9 +49,9 @@
                         </button>
                         <button
                                 pButton
-                                icon="pi pi-pencil"
-                                class="p-button-warning"
-                                routerLink="/product/:id"
+                                icon="pi pi-hammer"
+                                class="p-button-success"
+                                routerLink="/product/{{ product.id }}"
                         >
                             Details
                         </button>
