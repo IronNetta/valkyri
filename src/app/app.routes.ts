@@ -23,8 +23,15 @@ export const routes: Routes = [
       },
       {
         path: 'users',
-        loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent),
-        canActivate: [isConnectedGuard]
+        loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
+      },
+      {
+        path: 'create',
+        loadComponent: () => import('./features/products/components/create/create.component').then(m => m.CreateComponent)
+      },
+      {
+        path: 'update/:id',
+        loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent)
       },
       {
         path: 'products',
