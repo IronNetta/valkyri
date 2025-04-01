@@ -24,10 +24,10 @@ export class CreateComponent {
 
   constructor() {
     this.productForm = this._fb.group({
-      name: [null, [Validators.required,Validators.maxLength(50)]],
+      nom: [null, [Validators.required,Validators.maxLength(50)]],
       description: [null, [Validators.maxLength(255)]],
-      picture: [null,[]],
-      price: [null, [Validators.required,Validators.min(0)]]
+      imageUrl: [null,[]],
+      prix: [null, [Validators.required,Validators.min(0)]]
     });
   }
 
@@ -39,6 +39,7 @@ export class CreateComponent {
       return;
     }
 
+    console.log(this.productForm.value);
     this._productService.create(this.productForm.value).subscribe({
       next: () => {
         this._router.navigate(['/products']);

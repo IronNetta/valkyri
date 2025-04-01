@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ProductSingleDtoModel} from '../../../models/product-single-dto.model';
+import {ProductSingleDtoModel} from '../../models/product-single-dto.model';
 import {Button, ButtonModule} from 'primeng/button';
 import { FieldsetModule } from 'primeng/fieldset';
 import { DividerModule } from 'primeng/divider';
