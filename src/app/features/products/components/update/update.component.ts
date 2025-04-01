@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {Component, effect, inject, OnInit, signal} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
@@ -12,13 +12,13 @@ import { ProductDetailsDtoModel } from '../../models/product-details-dto.model';
 })
 export class UpdateComponent {
 
-  /*private readonly _fb: FormBuilder = inject(FormBuilder);
-  private readonly _router: Router = inject(Router);
-  private readonly _route: ActivatedRoute = inject(ActivatedRoute);
-  private readonly _productService: ProductService = inject(ProductService);
+  private readonly _fb = inject(FormBuilder);
+  private readonly _router = inject(Router);
+  private readonly _route = inject(ActivatedRoute);
+  private readonly _productService = inject(ProductService);
 
   productForm: FormGroup;
-  productId!: number;
+  productId = signal<number | null>(null);
 
   constructor() {
     this.productForm = this._fb.group({
@@ -27,38 +27,41 @@ export class UpdateComponent {
       picture: [null, []],
       price: [null, [Validators.required, Validators.min(0)]]
     });
-  }
 
-  ngOnInit(): void {
-    this.productId = Number(this._route.snapshot.paramMap.get('id'));
-    if (this.productId) {
-      this._productService.findByID(this.productId).subscribe({
-        next: (product: ProductDetailsDtoModel) => {
-          this.productForm.patchValue({
-            name: product.nom,
-            description: product.description,
-            picture: product.imageUrl,
-            price: product.prix
-          });
-        },
-        error: (err) => console.error('Erreur lors de la récupération du produit', err)
-      });
-    }
+    // Récupérer l'ID du produit dès l'initialisation
+    this.productId.set(Number(this._route.snapshot.paramMap.get('id')) || null);
+
+    // Charger le produit si un ID est présent
+    effect(() => {
+      const id = this.productId();
+      if (id) {
+        this._productService.findByID(id).subscribe({
+          next: (product: ProductDetailsDtoModel) => {
+            this.productForm.patchValue({
+              name: product.nom,
+              description: product.description,
+              picture: product.imageUrl,
+              price: product.prix
+            });
+          },
+          error: (err) => console.error('Erreur lors de la récupération du produit', err)
+        });
+      }
+    });
   }
 
   submit(): void {
     this.productForm.markAllAsTouched();
     if (this.productForm.invalid) return;
 
-    this._productService.update(this.productId, this.productForm.value).subscribe({
+    const id = this.productId();
+    if (!id) return;
+
+    this._productService.update(id, this.productForm.value).subscribe({
       next: () => {
         this._router.navigate(['/products']);
       },
-      error: (error)=> {
-        console.error(error);
-      }
-    })
       error: (err) => console.error('Erreur lors de la mise à jour', err)
-    };*/
-
+    });
+  }
 }

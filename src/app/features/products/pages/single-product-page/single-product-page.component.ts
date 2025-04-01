@@ -6,16 +6,18 @@ import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
 import { SplitterModule } from 'primeng/splitter';
 import {NgOptimizedImage} from '@angular/common';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-single-product-page',
-  imports: [
-    Button,
-    FieldsetModule,
-    DividerModule,
-    SplitterModule,
-    PanelModule,
-  ],
+    imports: [
+        Button,
+        FieldsetModule,
+        DividerModule,
+        SplitterModule,
+        PanelModule,
+        RouterLink,
+    ],
   standalone: true,
   templateUrl: './single-product-page.component.html',
   styleUrl: './single-product-page.component.scss'
