@@ -14,18 +14,15 @@ import {NgForOf} from '@angular/common';
   styleUrl: './stock-list.component.scss'
 })
 export class StockListComponent {
+  private stockService = inject(StockService);
 
-  private readonly _stockService: StockService = inject(StockService);
+  stocks = signal<any[]>([]);
 
-  stocks!:StockDetailsDto[];
-
-  constructor(
-  ) {
-    this._stockService.getAllStocks().subscribe({
-      next: datas => this.stocks = datas,
-      error: err => console.log(err),
+  constructor() {
+    effect(() => {
+      this.stockService.getStocksWithDetails().subscribe(data => {
+        this.stocks.set(data);
+      });
     });
   }
-
-
 }
