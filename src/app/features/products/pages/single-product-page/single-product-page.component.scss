@@ -1,16 +1,17 @@
 .productSingleImage {
-  max-height: 200px;
+  height: 100%;
   margin-top : 4%;
 
 }
 
+.container {
+  margin : 2% 5% 2% 5%;
+}
+
 .singleProductPage {
-  height : 100%;
+  align-items: stretch;
 }
 
-.productSingleImage {
-
-}
 
 .infoProductBox {
   display : flex;
