@@ -1,16 +1,17 @@
 
 import {Component, inject, Input} from '@angular/core';
 import {ProductSingleDtoModel} from '../../models/product-single-dto.model';
-import {Button, ButtonModule} from 'primeng/button';
+import {Button, ButtonDirective, ButtonModule} from 'primeng/button';
 import { FieldsetModule } from 'primeng/fieldset';
 import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
 import { SplitterModule } from 'primeng/splitter';
 import {ProductService} from '../../services/product.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {ConfirmationService} from 'primeng/api';
 import {Card} from 'primeng/card';
 import {ProductDetailsDtoModel} from '../../models/product-details-dto.model';
+import {NgForOf} from '@angular/common';
 
 
 @Component({
@@ -20,8 +21,8 @@ import {ProductDetailsDtoModel} from '../../models/product-details-dto.model';
     FieldsetModule,
     DividerModule,
     SplitterModule,
-
-    PanelModule
+    PanelModule,
+    Card
   ],
   standalone: true,
   templateUrl: './single-product-page.component.html',
