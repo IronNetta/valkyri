@@ -2,10 +2,10 @@
 
 <p class="title">Les Stocks</p>
 <div class="stock-container">
-  <ul *ngFor="let stock of stocks">
+  <ul *ngFor="let stock of stocks()">
     <li><strong>ID:</strong> {{stock.id}}</li>
     <li><strong>Quantité:</strong> {{stock.quantiteDisponible}}</li>
-    <li><strong>Produit:</strong> {{stock.produitId}}</li>
-    <li><strong>Utilisateur:</strong> {{stock.userId}}</li>
+    <li><strong>Produit:</strong> {{stock.produitNom}}</li>
+    <li><strong>Utilisateur:</strong> {{stock.userNom}}</li>
   </ul>
 </div>
