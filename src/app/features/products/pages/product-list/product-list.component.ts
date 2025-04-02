@@ -82,10 +82,13 @@ export class ProductListComponent {
   }
 
   deleteProduct(id: number): void {
-    console.log('Tentative de suppression sans confirmation pour', id);
-    this.productService.deleteProduct(id).subscribe(() => {
-      console.log('Produit supprimé avec succès');
-      this.fetchProducts();
+    this.confirmationService.confirm({
+      message: 'Êtes-vous sûr de vouloir supprimer ce produit ?',
+      accept: () => {
+        this.productService.deleteProduct(id).subscribe(() => {
+          this.fetchProducts();
+        });
+      }
     });
   }
 }

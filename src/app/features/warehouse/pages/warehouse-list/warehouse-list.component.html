@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2>Liste des entrepôts</h2>
+
+  <div class="mb-3 d-flex align-items-center gap-2">
+    <input type="text" pInputText placeholder="Rechercher un entrepôt..." [(ngModel)]="searchQuery" (input)="filterWarehouses()" />
+    <button pButton type="button" label="Ajouter un entrepôt" icon="pi pi-plus" (click)="addWarehouse()"></button>
+  </div>
+
+  <p-table [value]="filteredWarehouses" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nom</th>
+        <th>Stock Id</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-warehouse>
+      <tr>
+        <td>{{ warehouse.nom}}</td>
+        <td>{{ warehouse.stockId}}</td>
+        <td>
+          <button pButton icon="pi pi-trash" class="p-button-danger p-button-sm" (click)="confirmDeleteWarehouse(warehouse.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog></p-confirmDialog>
+</div>
