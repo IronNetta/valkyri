@@ -49,6 +49,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/stock/pages/stock-list/stock-list.component').then(m => m.StockListComponent),
         canActivate: [isConnectedGuard]
       },
+      {
+        path: 'stock/low',
+        loadComponent: () => import('./features/stock/pages/low-stock/low-stock.component').then(m => m.LowStockComponent),
+        canActivate: [isConnectedGuard]
+      },
 
   {
     path:'warehouse/create',

@@ -1,12 +1,13 @@
 <p-button
 label="low stocks"
 type="submit"
+(click)="checkLowStock()"
 ></p-button>
 
 <p>Hello</p>
-@for (stock of stock; track stock.id){
+@for (stock of stocks; track stock.id){
   <div>
-    <p>{{stock.quantity}}</p>
+    <p>{{stock.quantiteDisponible}}</p>
   </div>
 }
 
