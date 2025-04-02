@@ -49,8 +49,8 @@
                         </button>
                         <button
                                 pButton
-                                icon="pi pi-hammer"
-                                class="p-button-success"
+                                icon="pi pi-search"
+                                class="p-button-info"
                                 routerLink="/product/{{ product.id }}"
                         >
                             Details
@@ -73,7 +73,9 @@
     <p-paginator
             [rows]="itemsPerPage()"
             [totalRecords]="filteredProducts().length"
-            [rowsPerPageOptions]="[4, 8, 12]"
+            [rowsPerPageOptions]="[4, 8, 12, 16]"
             (onPageChange)="paginate($event)">
     </p-paginator>
+
+  <p-confirmDialog></p-confirmDialog>
 </div>

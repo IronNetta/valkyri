@@ -70,8 +70,13 @@ export class NavComponent {
           }] : []),
           ...(currentUser.user.role.includes('ADMIN') || currentUser.user.role.includes('COMERCIAL')? [{
             label: 'Products',
-            icon: 'pi pi-users',
+            icon: 'pi pi-barcode',
             routerLink: '/products',
+          }] : []),
+          ...(currentUser.user.role.includes('ADMIN') || currentUser.user.role.includes('COMERCIAL')? [{
+            label: 'Warehouses',
+            icon: 'pi pi-warehouse',
+            routerLink: '/warehouses',
           }] : []),
           {
             label: 'Logout',

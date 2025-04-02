@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import {isConnectedGuard} from "./features/shared/guards/is-connected.guard";
 import {SingleProductPageComponent} from './features/products/pages/single-product-page/single-product-page.component';
+import {CreateWarehouseComponent} from './features/warehouse/components/create/create.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,18 @@ export const routes: Routes = [
       },
       {
         path: 'stock',
-        loadComponent: () => import('./features/stock/pages/stock-list/stock-list.component').then(m => m.StockListComponent)
-      }
+        loadComponent: () => import('./features/stock/pages/stock-list/stock-list.component').then(m => m.StockListComponent),
+        canActivate: [isConnectedGuard]
+      },
+
+  {
+    path:'warehouse/create',
+    loadComponent: () => import('./features/warehouse/components/create/create.component').then(m => m.CreateWarehouseComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'warehouses',
+    loadComponent: () => import('./features/warehouse/pages/warehouse-list/warehouse-list.component').then(m => m.WarehouseListComponent),
+    canActivate: [isConnectedGuard]
+  }
 ];

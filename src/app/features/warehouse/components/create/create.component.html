@@ -1,0 +1,27 @@
+<form [formGroup]="warehouseForm" (ngSubmit)="submit()">
+  <p-floatlabel variant="on">
+    <div>
+      <input pInputText id="nom" type="text" formControlName="nom">
+      <label for="nom">Nom :</label>
+    </div>
+  </p-floatlabel>
+  @if (warehouseForm.get('nom')?.touched && warehouseForm.get('nom')?.invalid) {
+    <div>
+      <small>Le nom est requis (max. 50 caractères).</small>
+    </div>
+  }
+
+  <p-floatlabel variant="on">
+    <div>
+      <input pInputText id="stockid" type="number" formControlName="stockid">
+      <label for="stockid">Stock ID :</label>
+    </div>
+  </p-floatlabel>
+  @if (warehouseForm.get('stockid')?.touched && warehouseForm.get('stockid')?.invalid) {
+    <div>
+      <small>L'identifiant du stock est requis et doit être positif.</small>
+    </div>
+  }
+
+  <p-button severity="success" label="Créer" type="submit"></p-button>
+</form>
