@@ -1,7 +1,7 @@
 
 <div class="container singleProductPage">
   <div class="grid">
-    <div class="col-12 lg:col-6">
+    <div id="info" class="col-12 lg:col-6">
       <p-card [style]="{ height: '100%' }" class="product-card">
         <ng-template pTemplate="content">
           <h3>{{product.nom}}</h3>
@@ -13,9 +13,9 @@
       </p-card>
     </div>
 
-    <div class="col-12 lg:col-6">
+    <div id="image" class="col-12 lg:col-6">
       <p-card [style]="{ height: '100%' }" class="product-card maxHeight">
-          <img class="productSingleImage" [src]="product.imageUrl || 'https://via.placeholder.com/150'" alt="{{ product.nom }}">
+          <img class="productSingleImage" [src]="product.imageUrl || 'https://i.pinimg.com/474x/03/a5/14/03a514f0b4332a6c1ebdf970b21b86b0.jpg'" alt="{{ product.nom }}">
       </p-card>
     </div>
   </div>
