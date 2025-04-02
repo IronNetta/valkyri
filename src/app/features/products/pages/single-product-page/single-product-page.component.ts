@@ -22,10 +22,7 @@ import {NgForOf} from '@angular/common';
     DividerModule,
     SplitterModule,
     PanelModule,
-    NgForOf,
-    ButtonDirective,
-    Card,
-    RouterLink
+    Card
   ],
   standalone: true,
   templateUrl: './single-product-page.component.html',
