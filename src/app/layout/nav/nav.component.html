@@ -1,4 +1,4 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar [model]="items" [style]="menuStyles"></p-menubar>
 <p-dialog header="Register" [modal]="true" [(visible)]="registerVisible">
   <app-register (close)="closeForm()" (_switchForm)="switchForm()"></app-register>
 </p-dialog>

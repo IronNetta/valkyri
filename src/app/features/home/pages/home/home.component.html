@@ -1,32 +1,36 @@
 <div class="home-page">
   <div class="hero-section">
-    @if (!isLoggedIn) {
-      <h1>Bienvenue sur Valkyrie</h1>
-      <p>Connectez-vous ou inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
-    }
-    @if (isLoggedIn) {
-      <h1>Bienvenue, {{ userName }} !</h1>
-      <p>Nous sommes heureux de vous revoir. Profitez de votre expérience personnalisée !</p>
-    }
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      @if (!isLoggedIn) {
+        <h1 class="hero-title">Bienvenue sur Valkyrie</h1>
+        <p class="hero-description">Connectez-vous ou inscrivez-vous pour découvrir toutes nos fonctionnalités.</p>
+      }
+      @if (isLoggedIn) {
+        <h1 class="hero-title">Bienvenue, {{ userName }} !</h1>
+        <p class="hero-description">Nous sommes heureux de vous revoir. Profitez de votre expérience personnalisée !</p>
+      }
+    </div>
   </div>
-    <div class="features-section">
-      <h2>Nos fonctionnalités</h2>
-      <div class="features">
-        <div class="feature-card">
-          <i class="pi pi-users feature-icon"></i>
-          <h3>Gestion des utilisateurs</h3>
-          <p>Gérez vos informations personnelles, modifiez votre profil et bien plus encore.</p>
-        </div>
-        <div class="feature-card">
-          <i class="pi pi-lock feature-icon"></i>
-          <h3>Sécurité renforcée</h3>
-          <p>Vos données sont protégées avec notre système d'authentification sécurisé.</p>
-        </div>
-        <div class="feature-card">
-          <i class="pi pi-calendar feature-icon"></i>
-          <h3>Planification</h3>
-          <p>Organisez vos rendez-vous et suivez vos activités en toute simplicité.</p>
-        </div>
+
+  <div class="features-section">
+    <h2 class="features-title">Nos fonctionnalités</h2>
+    <div class="features">
+      <div class="feature-card">
+        <i class="pi pi-users feature-icon"></i>
+        <h3>Gestion des utilisateurs</h3>
+        <p>Gérez vos informations personnelles, modifiez votre profil et bien plus encore.</p>
+      </div>
+      <div class="feature-card">
+        <i class="pi pi-lock feature-icon"></i>
+        <h3>Sécurité renforcée</h3>
+        <p>Vos données sont protégées avec notre système d'authentification sécurisé.</p>
+      </div>
+      <div class="feature-card">
+        <i class="pi pi-calendar feature-icon"></i>
+        <h3>Planification</h3>
+        <p>Organisez vos rendez-vous et suivez vos activités en toute simplicité.</p>
       </div>
     </div>
   </div>
+</div>
