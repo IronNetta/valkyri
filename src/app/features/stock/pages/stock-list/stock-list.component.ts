@@ -1,37 +1,29 @@
-import {Component, inject} from '@angular/core';
+import {Component, effect, inject, signal} from '@angular/core';
 import {StockService} from '../../services/stock.service';
 import {StockDetailsDto} from '../../models/stock-details-dto.model';
 import {Button} from 'primeng/button';
-import {Router} from '@angular/router';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-stock-list',
   imports: [
-    Button
+    Button,
+    NgForOf
   ],
   templateUrl: './stock-list.component.html',
   styleUrl: './stock-list.component.scss'
 })
 export class StockListComponent {
+  private stockService = inject(StockService);
 
-  private readonly _service: StockService = inject(StockService);
+  stocks = signal<any[]>([]);
 
-  stocks!: StockDetailsDto[];
-
-  constructor(
-    private router: Router,
-  ) {
-    this._service.getAllStocks().subscribe({
-      next: datas =>{
-        this.stocks = datas;
-        console.log(this.stocks);
-      },
-      error: err => console.error(err)
-    })
-  }
-
-  checkLowStock(): void {
-    this.router.navigate(['/stock/low']);
+  constructor() {
+    effect(() => {
+      this.stockService.getStocksWithDetails().subscribe(data => {
+        this.stocks.set(data);
+      });
+    });
   }
 
 }
