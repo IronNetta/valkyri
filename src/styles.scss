@@ -1,2 +1,50 @@
 @import "primeicons/primeicons.css";
 @import 'primeflex/primeflex.css';
+
+:root {
+  --primary-color: #40e0d0; // Turquoise
+  --secondary-color: #8a2be2; // Mauve
+  --text-color: #ffffff;
+  --background-color: #121212;
+  --accent-color: #ff00ff; // Accent futuriste
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  padding: 12px 20px;
+  color: var(--text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px var(--accent-color);
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode {
+  --background-color: #1a1a2e;
+  --text-color: #e0e0e0;
+  --accent-color: #ff007f;
+}
+
