@@ -1,0 +1,51 @@
+/* Style du titre */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+  text-align: center;
+  color: #2f3542;
+}
+
+/* Container général */
+.stock-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f1f2f6;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style de chaque liste */
+.stock-container ul {
+  list-style: none;
+  padding: 15px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stock-container li {
+  padding: 5px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #dfe4ea;
+}
+
+.stock-container li:last-child {
+  border-bottom: none;
+}
+
+.stock-container li strong {
+  color: #2f3542;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stock-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
