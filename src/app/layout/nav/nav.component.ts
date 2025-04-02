@@ -78,6 +78,11 @@ export class NavComponent {
             icon: 'pi pi-warehouse',
             routerLink: '/warehouses',
           }] : []),
+          ...(currentUser.user.role.includes('ADMIN') || currentUser.user.role.includes('COMERCIAL')? [{
+            label: 'Stocks',
+            icon: 'pi pi-box',
+            routerLink: '/stock',
+          }] : []),
           {
             label: 'Logout',
             icon: 'pi pi-logout',

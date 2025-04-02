@@ -1,1 +1,12 @@
-<p>stock-list works!</p>
+<p-button
+label="low stocks"
+type="submit"
+></p-button>
+
+<p>Hello</p>
+@for (stock of stock; track stock.id){
+  <div>
+    <p>{{stock.quantity}}</p>
+  </div>
+}
+
