@@ -7,8 +7,14 @@
           <h3>{{product.nom}}</h3>
           <p>{{product.description}}</p>
           <p>Prix unitaire : {{product.prix}} €</p>
-          <p-button label="Modifier" severity="success" icon="pi pi-pencil"
-                    class="p-button-warning" (click)="editProduct(product.id)"></p-button>
+          <div>
+            <p-button label="Modifier" severity="success" icon="pi pi-pencil"
+                      class="p-button-warning" (click)="editProduct(product.id)"></p-button>
+          </div>
+          <div>
+            <p-button label="Voir stocks restants" severity="success" icon="pi pi-box"
+                      class="p-button-warning" (click)="viewStock(product.id)"></p-button>
+          </div>
         </ng-template>
       </p-card>
     </div>

@@ -54,4 +54,8 @@ export class SingleProductPageComponent {
     this.router.navigate(['/product/update', id]);
   }
 
+  viewStock(id: number): void {
+    this.router.navigate(['/stock/product', id]);
+  }
+
 }

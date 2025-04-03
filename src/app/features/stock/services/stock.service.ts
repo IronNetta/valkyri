@@ -34,6 +34,12 @@ export class StockService {
   public getAllStocks() {
     return this._http.get<StockDetailsDto[]>(`${environment.API_URL}/stock`);
   }
+  public getStockByProduct(id: number){
+    return this._http.get<number>(`${environment.API_URL}/stock/product/${id}`);
+  }
+  public getStockFromUser(){
+    return this._http.get<StockDetailsDto[]>(`${environment.API_URL}/stock/stock/user`);
+  }
   public getLowStock(threshold: number = 5) {
     let params = new HttpParams()
       .set('threshold', threshold);
