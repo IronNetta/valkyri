@@ -1,15 +1,22 @@
-import {Component, effect, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {ButtonDirective} from 'primeng/button';
 import {NgIf} from '@angular/common';
 import {AuthService} from '../../../auth/services/auth-service';
+import {MessageService} from 'primeng/api';
+import {Toast} from 'primeng/toast';
+import {Dialog} from 'primeng/dialog';
 
 @Component({
   selector: 'app-home',
   imports: [
+    Toast,
+    Dialog,
+    ButtonDirective
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  providers: [MessageService]
 })
 export class HomeComponent {
   isLoggedIn: boolean = false;
@@ -22,4 +29,5 @@ export class HomeComponent {
       this.userName = currentUser?.user.fullName || '';
     });
   }
+
 }

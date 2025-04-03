@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {ApplicationConfig, importProvidersFrom, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter, withComponentInputBinding} from '@angular/router';
 
 import { routes } from './app.routes';
@@ -7,6 +7,7 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import {jwtInterceptor} from './features/shared/interceptors/jwt.interceptor';
+import {ToastModule} from 'primeng/toast';
 
 export const appConfig: ApplicationConfig = {
   providers: [
