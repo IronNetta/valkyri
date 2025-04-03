@@ -3,6 +3,7 @@ import {StockService} from '../../services/stock.service';
 import {StockDetailsDto} from '../../models/stock-details-dto.model';
 import {Button} from 'primeng/button';
 import {NgForOf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-stock-list',
@@ -18,7 +19,9 @@ export class StockListComponent {
 
   stocks = signal<any[]>([]);
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     effect(() => {
       this.stockService.getStocksWithDetails().subscribe(data => {
         this.stocks.set(data);
@@ -26,5 +29,8 @@ export class StockListComponent {
     });
   }
 
+  linkToStocksByUser(): void {
+    this.router.navigate(['/stock/stock/user']);
+  }
 
 }
