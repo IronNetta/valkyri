@@ -3,13 +3,8 @@ import {StockService} from '../../services/stock.service';
 import {StockDetailsDto} from '../../models/stock-details-dto.model';
 import {Button, ButtonDirective} from 'primeng/button';
 import {NgForOf} from '@angular/common';
-
-import {Router} from '@angular/router';
-
 import {Paginator} from "primeng/paginator";
 import {Router} from '@angular/router';
-import {ConfirmationService} from 'primeng/api';
-import {ProductService} from '../../../products/services/product.service';
 import {FormsModule} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
 
@@ -39,10 +34,6 @@ export class StockListComponent {
 
 
   //private stockService = inject(StockService);
-
-
-  constructor(
-    private router: Router
 
   constructor(
     private stockService: StockService,
@@ -115,6 +106,7 @@ export class StockListComponent {
   //     }
   //   });
   // }
+
 
 
 }

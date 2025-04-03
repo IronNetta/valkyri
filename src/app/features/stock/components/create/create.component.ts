@@ -17,7 +17,6 @@ import {InputText} from 'primeng/inputtext';
     FloatLabel,
     ReactiveFormsModule,
     Button,
-    NgForOf,
     DropdownModule,
     InputText
   ],
