@@ -1,15 +1,15 @@
-import {Component, effect, inject, signal} from '@angular/core';
-import {StockService} from '../../services/stock.service';
-import {StockDetailsDto} from '../../models/stock-details-dto.model';
-import {Router} from '@angular/router';
+import {Component, inject, signal} from '@angular/core';
 import {Button} from 'primeng/button';
 import {PrimeTemplate} from 'primeng/api';
 import {TableModule} from 'primeng/table';
-import { BadgeModule } from 'primeng/badge';
+import {BadgeModule} from 'primeng/badge';
 import {NgStyle} from '@angular/common';
+import {StockDetailsDto} from '../../models/stock-details-dto.model';
+import {StockService} from '../../services/stock.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-low-stock',
+  selector: 'app-stock-list-user',
   imports: [
     Button,
     PrimeTemplate,
@@ -17,10 +17,10 @@ import {NgStyle} from '@angular/common';
     BadgeModule,
     NgStyle
   ],
-  templateUrl: './low-stock.component.html',
-  styleUrl: './low-stock.component.scss'
+  templateUrl: './stock-list-user.component.html',
+  styleUrl: './stock-list-user.component.scss'
 })
-export class LowStockComponent {
+export class StockListUserComponent {
   stocks = signal<StockDetailsDto[]>([]);
   private readonly _service: StockService = inject(StockService);
 
@@ -32,7 +32,7 @@ export class LowStockComponent {
   }
 
   fetchStocks(): void {
-    this._service.getLowStock().subscribe((data) => {
+    this._service.getStockFromUser().subscribe((data) => {
       this.stocks.set(data);
     });
   }
@@ -51,8 +51,8 @@ export class LowStockComponent {
     else return 'success';
   }
 
-  returnToStocks(): void {
-    this.router.navigate(['/stock/stock/user']);
+  goToLowStocks(): void {
+    this.router.navigate(['/stock/low']);
   }
 
 }

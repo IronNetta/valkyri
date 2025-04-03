@@ -50,6 +50,16 @@ export const routes: Routes = [
         canActivate: [isConnectedGuard]
       },
       {
+        path: 'stock/stock/user',
+        loadComponent: () => import('./features/stock/pages/stock-list-user/stock-list-user.component').then(m => m.StockListUserComponent),
+        canActivate: [isConnectedGuard]
+      },
+      {
+        path: 'stock/product/:id',
+        loadComponent: ()=> import('./features/stock/pages/stock-single-product/stock-single-product.component').then(m => m.StockSingleProductComponent),
+        canActivate: [isConnectedGuard]
+      },
+      {
         path: 'stock/low',
         loadComponent: () => import('./features/stock/pages/low-stock/low-stock.component').then(m => m.LowStockComponent),
         canActivate: [isConnectedGuard]

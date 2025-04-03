@@ -1,11 +1,11 @@
 <div class="container mt-4 lowStockBox">
   <p-button
-    label="Back to stocks"
+    label="Low Stocks"
     type="submit"
-    (click)="returnToStocks()"
+    (click)="goToLowStocks()"
   ></p-button>
-  <h2>Liste des stocks faibles</h2>
-  <p-table [value]="stocks()" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Affichage de {first} jusqu'a {last} sur {totalRecords} stocks faibles" [rowsPerPageOptions]="[5,10,25,50]" styleClass="mt-5">
+  <h2>Liste des stocks</h2>
+  <p-table [value]="stocks()" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Affichage de {first} jusqu'a {last} sur {totalRecords} stocks de produits" [rowsPerPageOptions]="[5,10,25,50]" styleClass="mt-5">
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="produitId">Produits<p-sortIcon field="Produits" /></th>
@@ -16,7 +16,7 @@
     <ng-template pTemplate="body" let-stock>
       <tr>
         <td class="productNameWidth"  [ngStyle]="rowStyle(stock)">{{ stock.produitNom}}</td>
-       <td class="quantityWidth"><p-badge [value]="stock.quantiteDisponible" [severity]="stockSeverity(stock)" /></td>
+        <td class="quantityWidth"><p-badge [value]="stock.quantiteDisponible" [severity]="stockSeverity(stock)" /></td>
       </tr>
     </ng-template>
 
