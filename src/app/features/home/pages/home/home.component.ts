@@ -10,9 +10,6 @@ import {Dialog} from 'primeng/dialog';
 @Component({
   selector: 'app-home',
   imports: [
-    Toast,
-    Dialog,
-    ButtonDirective,
     RouterLink
   ],
   templateUrl: './home.component.html',

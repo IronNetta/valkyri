@@ -90,6 +90,13 @@ export class NavComponent {
             routerLink: '/stock',
           },
         ] : []),
+        ...(currentUser.user.role.includes('ADMIN') || currentUser.user.role.includes('COMERCIAL') ? [
+          {
+            label: 'Shopping Carts',
+            icon: 'pi pi-shopping-cart',
+            routerLink: '/shoppingCart',
+          },
+        ] : []),
         {
           label: 'Logout',
           icon: 'pi pi-logout',
