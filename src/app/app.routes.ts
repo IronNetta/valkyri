@@ -64,5 +64,10 @@ export const routes: Routes = [
     path: 'warehouses',
     loadComponent: () => import('./features/warehouse/pages/warehouse-list/warehouse-list.component').then(m => m.WarehouseListComponent),
     canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'scraping',
+    loadComponent: () => import('./features/home/components/scraping/scraping.component').then(m => m.ScrapingComponent),
+    canActivate: [isConnectedGuard]
   }
 ];

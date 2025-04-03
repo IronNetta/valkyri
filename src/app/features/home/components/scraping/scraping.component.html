@@ -1,1 +1,35 @@
-<p>scraping works!</p>
+<div class="scraping-container">
+    <p-card header="Recherche de produit">
+        <div class="form-group">
+            <label for="query">Produit : (Exemple : Soumission)</label>
+            <input pInputText id="query" [(ngModel)]="query" placeholder="Entrez un produit " />
+        </div>
+        <div class="form-group">
+            <label for="site">Site : (Exemple :  https://books.toscrape.com)</label>
+            <input pInputText id="site" [(ngModel)]="site" placeholder="Entrez une URL" />
+        </div>
+        <p-button label="Rechercher" icon="pi pi-search" (click)="searchProduct()" [disabled]="loading"></p-button>
+
+        <p-progressSpinner *ngIf="loading"></p-progressSpinner>
+        <p-message *ngIf="error" severity="error" [text]="error"></p-message>
+
+        <div *ngIf="results">
+            <p-table [value]="results">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nom</th>
+                        <th>description</th>
+                        <th>Prix</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.nom }}</td>
+                        <td>{{ product.description}}</td>
+                        <td>{{ product.prix }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </p-card>
+</div>

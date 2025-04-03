@@ -12,7 +12,8 @@ import {Dialog} from 'primeng/dialog';
   imports: [
     Toast,
     Dialog,
-    ButtonDirective
+    ButtonDirective,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
