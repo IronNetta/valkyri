@@ -1,4 +1,4 @@
-import { Component, effect, inject, WritableSignal } from '@angular/core';
+import {Component, effect, inject, ViewChild, WritableSignal} from '@angular/core';
 import { UserTokenDto } from '../../features/auth/models/user-token-dto';
 import { AuthService } from '../../features/auth/services/auth-service';
 import { MenuItem } from 'primeng/api';
@@ -22,6 +22,9 @@ import { ButtonDirective } from 'primeng/button';
 })
 export class NavComponent {
   private readonly _authService: AuthService = inject(AuthService);
+
+  @ViewChild(LoginComponent) loginComponent!: LoginComponent;
+  @ViewChild(RegisterComponent) registerComponent!: RegisterComponent;
 
   items!: MenuItem[];
   registerVisible: boolean = false;
@@ -125,9 +128,19 @@ export class NavComponent {
     this.registerVisible = false;
     this.loginVisible = false;
   }
-
   switchForm() {
     this.loginVisible = !this.loginVisible;
     this.registerVisible = !this.registerVisible;
+  }
+
+  resetLoginForm() {
+    if (this.loginComponent) {
+      this.loginComponent.closeForm();
+    }
+  }
+  resetRegisterForm() {
+    if (this.registerComponent) {
+      this.registerComponent.closeForm();
+    }
   }
 }

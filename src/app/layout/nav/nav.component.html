@@ -1,7 +1,7 @@
 <p-menubar [model]="items" [style]="menuStyles"></p-menubar>
-<p-dialog header="Register" [modal]="true" [(visible)]="registerVisible">
+<p-dialog header="Register" [modal]="true" [(visible)]="registerVisible" (onHide)="resetRegisterForm()">
   <app-register (close)="closeForm()" (_switchForm)="switchForm()"></app-register>
 </p-dialog>
-<p-dialog header="Login" [modal]="true" [(visible)]="loginVisible">
-  <app-login (close)="closeForm()" (_switchForm)="switchForm()"></app-login>
+<p-dialog header="Login" [modal]="true" [(visible)]="loginVisible" (onHide)="resetLoginForm()">
+  <app-login #loginComponent (close)="closeForm()" (_switchForm)="switchForm()"></app-login>
 </p-dialog>
