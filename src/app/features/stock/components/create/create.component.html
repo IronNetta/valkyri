@@ -1,0 +1,33 @@
+<form [formGroup]="stockForm" (ngSubmit)="submit()">
+  <p-floatlabel variant="on">
+    <div>
+      <input pInputText id="quantiteDisponible" type="number" formControlName="quantiteDisponible">
+      <label for="quantiteDisponible">Quantité disponible : </label>
+    </div>
+  </p-floatlabel>
+  @if (stockForm.get('quantiteDisponible')?.touched && stockForm.get('quantiteDisponible')?.invalid){
+    <div>
+      <small>Quantite Disponible is required</small>
+    </div>
+  }
+
+  <p-floatlabel variant="on">
+    <label for="produitNom">Produit :</label>
+    <p-dropdown id="produitNom" formControlName="produitId" [options]="produits" optionLabel="nom" optionValue="id" placeholder="Sélectionner un produit"></p-dropdown>
+  </p-floatlabel>
+
+  <p-floatlabel variant="on">
+    <label for="userNom">Users :</label>
+    <p-dropdown id="userNom" formControlName="userId" [options]="users" optionLabel="fullName" optionValue="id" placeholder="Sélectionner un utilisateur"></p-dropdown>
+  </p-floatlabel>
+
+
+
+  <p-button
+    severity="success"
+    label="Create"
+    type="submit"
+  >
+
+  </p-button>
+</form>

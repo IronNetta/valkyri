@@ -9,28 +9,28 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-      {
-        path: 'home',
-        loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent)
-      },
-      {
-        path: 'product/create',
-        loadComponent: () => import('./features/products/components/create/create.component').then(m => m.CreateComponent),
-        canActivate: [isConnectedGuard]
-      },
-      {
-        path: 'product/update/:id',
-        loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent),
-        canActivate: [isConnectedGuard]
-      },
-      {
-        path: 'product/:id',
-        loadComponent: () => import('./features/products/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent),
-      },
-      {
-        path: 'users',
-        loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
-      },
+  {
+    path: 'home',
+    loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent)
+  },
+  {
+    path: 'product/create',
+    loadComponent: () => import('./features/products/components/create/create.component').then(m => m.CreateComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'product/update/:id',
+    loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'product/:id',
+    loadComponent: () => import('./features/products/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent),
+  },
+  {
+    path: 'users',
+    loadComponent: () => import('./features/user/pages/user-list/user-list.component').then(m => m.UserListComponent)
+  },
 
       {
         path: 'product/update/:id',
@@ -64,6 +64,39 @@ export const routes: Routes = [
         loadComponent: () => import('./features/stock/pages/low-stock/low-stock.component').then(m => m.LowStockComponent),
         canActivate: [isConnectedGuard]
       },
+
+  {
+    path: 'product/update/:id',
+    loadComponent: () => import('./features/products/components/update/update.component').then(m => m.UpdateComponent)
+  },
+  {
+    path: 'products/:id',
+    loadComponent: () => import('./features/products/pages/single-product-page/single-product-page.component').then(m => m.SingleProductPageComponent)
+  },
+  {
+    path: 'products',
+    loadComponent: () => import('./features/products/pages/product-list/product-list.component').then(m => m.ProductListComponent)
+  },
+  {
+    path: 'stock',
+    loadComponent: () => import('./features/stock/pages/stock-list/stock-list.component').then(m => m.StockListComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'stock/create',
+    loadComponent: () => import('./features/stock/components/create/create.component').then(m => m.CreateComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'stock/update/:id',
+    loadComponent: () => import('./features/stock/components/update/update.component').then(m => m.UpdateComponent),
+    canActivate: [isConnectedGuard]
+  },
+  {
+    path: 'stock/low',
+    loadComponent: () => import('./features/stock/pages/low-stock/low-stock.component').then(m => m.LowStockComponent),
+    canActivate: [isConnectedGuard]
+  },
 
   {
     path:'warehouse/create',

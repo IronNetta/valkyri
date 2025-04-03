@@ -1,5 +1,22 @@
 <p-button label="Your stocks" type="submit" (click)="linkToStocksByUser()" class="stock-button"></p-button>
 
+<div class="mb-3 d-flex align-items-center gap-2">
+  <input
+    type="text"
+    pInputText
+    placeholder="Rechercher un stock ..."
+    [(ngModel)]="searchQuery"
+    (input)="filterStock()"
+  />
+  <button
+    pButton
+    type="button"
+    label="Ajouter un stock"
+    icon="pi pi-plus"
+    (click)="addStock()"
+  ></button>
+</div>
+
 <p class="title">Les Stocks</p>
 <div class="stock-container">
   <ul *ngFor="let stock of stocks()">
@@ -9,3 +26,11 @@
     <li><strong>Utilisateur:</strong> {{stock.userNom}}</li>
   </ul>
 </div>
+
+<!-- Paginator PrimeNG -->
+<p-paginator
+  [rows]="itemsPerPage()"
+  [totalRecords]="filteredStocks().length"
+  [rowsPerPageOptions]="[4, 8, 12, 16]"
+  (onPageChange)="paginate($event)">
+</p-paginator>

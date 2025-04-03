@@ -4,13 +4,15 @@
   font-weight: bold;
   margin: 20px 0;
   text-align: center;
-  color: #2f3542;
+  color: #ffffff;
 }
 
-/* Container général */
 .stock-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   background: #f1f2f6;
@@ -18,14 +20,26 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style de chaque liste */
+/* Ajustement des styles des UL */
 .stock-container ul {
   list-style: none;
   padding: 15px;
-  background: white;
-  margin-bottom: 10px;
+  background: #52eda6;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive pour tablettes et mobiles */
+@media (max-width: 1024px) {
+  .stock-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stock-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .stock-container li {
@@ -49,3 +63,36 @@
     padding: 15px;
   }
 }
+
+/* Conteneur de la recherche et du bouton "Ajouter un stock" */
+.mb-3.d-flex {
+  display: flex;
+  justify-content: center;  /* Centrer les éléments horizontalement */
+  gap: 10px;  /* Espacement entre l'input et le bouton */
+  align-items: center;  /* Centrer les éléments verticalement */
+  margin-bottom: 20px;  /* Espacement sous le bloc */
+}
+
+/* Ajustement des champs de recherche */
+.mb-3.d-flex input {
+  width: 300px; /* Limiter la largeur de l'input */
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Ajustement du bouton */
+.mb-3.d-flex button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #52eda6;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.mb-3.d-flex button:hover {
+  background-color: #46d392;  /* Changer la couleur au survol */
+}
+

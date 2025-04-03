@@ -1,11 +1,12 @@
 import {inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {UserTokenDto} from '../models/user-token-dto';
+import {UserSessionDto, UserTokenDto} from '../models/user-token-dto';
 import {RegisterFormModel} from '../models/register-form.model';
 import {LoginFormModel} from '../models/login-form.model';
 import {tap} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {Router} from '@angular/router';
+import {ProductDetailsDtoModel} from '../../products/models/product-details-dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,4 +64,7 @@ export class AuthService {
     }
   }
 
+  getAllUsers() {
+    return this._http.get<UserSessionDto[]>(`${environment.API_URL}/user`);
+  }
 }
