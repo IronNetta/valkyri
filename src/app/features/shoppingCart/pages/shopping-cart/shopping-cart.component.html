@@ -1,1 +1,26 @@
-<p>shopping-cart works!</p>
+<p-card header="Mon Panier">
+  <p-table *ngIf="cart" [value]="cart.produits" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID Produit</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product }}</td>
+        <td>
+          <p-button icon="pi pi-trash" class="p-button-danger" label="Supprimer" (click)="removeCart()"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-button *ngIf="cart" label="Vider le panier" class="p-button-danger" icon="pi pi-times" (click)="removeCart()"></p-button>
+
+  <div *ngIf="cart">
+    <p-dropdown [options]="['attente', 'validé', 'expédié']" placeholder="Modifier statut" (onChange)="updateStatus($event.value)"></p-dropdown>
+  </div>
+
+  <p-toast></p-toast>
+</p-card>

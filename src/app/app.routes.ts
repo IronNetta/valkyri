@@ -69,5 +69,10 @@ export const routes: Routes = [
     path: 'scraping',
     loadComponent: () => import('./features/home/components/scraping/scraping.component').then(m => m.ScrapingComponent),
     canActivate: [isConnectedGuard]
+  },
+  {
+    path:'shoppingCart',
+    loadComponent: () => import('./features/shoppingCart/pages/shopping-cart/shopping-cart.component').then(m => m.ShoppingCartComponent),
+    canActivate: [isConnectedGuard]
   }
 ];
